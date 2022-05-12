@@ -23,8 +23,13 @@ $(document).ready(function(){
         },
         messages:{
             pass:{
+                
                 required:'venam',
-                minlength:'noki adikadai'
+                maxlength:"odai oo",
+                minlength:"noki adikadai"
+                
+            
+                
             }
 
             
